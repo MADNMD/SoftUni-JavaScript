@@ -1,68 +1,86 @@
-function manOWar(array) {
-    let pirateShip = array.shift().split('>').map(Number);
-    let warShip = array.shift().split('>').map(x => Number(x));
-    let maximumHealth = Number(array.shift());
+function manOfWar(input) {
 
-    while (array[0] !== 'Retire') {
-        let tokens = array.shift().split(' ');
-        let command = tokens.shift();
+    let pirateShips = input.shift().split('>').map(Number);
+    let warShips = input.shift().split('>').map(Number);
+    const maxHealth = Number(input.shift());
+
+    let line = input.shift();
+
+    while (line !== 'Retire') {
+
+        let [command, ...data] = line.split(' ');
 
         if (command === 'Fire') {
-            let index = Number(tokens[0]);
-            let damage = Number(tokens[1]);
-            if (index >= 0 && index <= warShip.length - 1) {
-                warShip[index] -= damage;
-                if (warShip[index] <= 0) {
+            const index = Number(data[0]);
+            const damage = Number(data[1]);
+
+            if (warShips[index]) {
+                warShips[index] -= damage;
+                if (warShips[index] <= 0) {
                     console.log("You won! The enemy ship has sunken.");
                     return;
                 }
             }
         } else if (command === 'Defend') {
-            let startIndex = Number(tokens[0]);
-            let endIndex = Number(tokens[1]);
-            let damage = Number(tokens[2]);
-            if (startIndex >= 0 && startIndex <= pirateShip.length - 1 && endIndex >= 0 && endIndex <= pirateShip.length - 1) {
-                for (let i = endIndex; i >= startIndex; i--) {
-                    pirateShip[i] -= damage;
-                    if (pirateShip[i] <= 0) {
+            const startIndex = Number(data[0]);
+            const endIndex = Number(data[1]);
+            const damage = Number(data[2]);
+
+            if (pirateShips[startIndex] && pirateShips[endIndex]) {
+                for (let i = startIndex; i < endIndex + 1; i++) {
+                    pirateShips[i] -= damage;
+                    if (pirateShips[i] <= 0) {
                         console.log("You lost! The pirate ship has sunken.");
                         return;
                     }
                 }
             }
         } else if (command === 'Repair') {
-            let index = Number(tokens[0]);
-            let givenHealth = Number(tokens[1]);
-            if (index >= 0 && index <= pirateShip.length - 1) {
-                pirateShip[index] += givenHealth;
-                if (pirateShip[index] > maximumHealth) {
-                    pirateShip[index] = maximumHealth;
+            const index = Number(data[0]);
+            const health = Number(data[1]);
+
+            if (pirateShips[index]) {
+                pirateShips[index] += health;
+                if (pirateShips[index] > maxHealth) {
+                    pirateShips[index] = maxHealth;
                 }
             }
         } else if (command === 'Status') {
+            const needeRepair = maxHealth / 5;
             let count = 0;
-            let percentHealth = maximumHealth * 0.2;
-            for (let i = 0; i < pirateShip.length; i++) {
-                let currentShip = pirateShip[i];
-                if (currentShip < percentHealth) {
+            for (let ship of pirateShips) {
+                if (needeRepair > ship) {
                     count++;
                 }
             }
             console.log(`${count} sections need repair.`);
         }
+        line = input.shift();
     }
-    pirateShipSum = pirateShip.reduce((a, b) => a + b, 0);
-    warShipSum = warShip.reduce((a, b) => a + b, 0);
+    const pirateShipSum = pirateShips.reduce((a, b) => a + b, 0);
+    const warshipSum = warShips.reduce((a, b) => a + b, 0);
+
     console.log(`Pirate ship status: ${pirateShipSum}`);
-    console.log(`Warship status: ${warShipSum}`);
+    console.log(`Warship status: ${warshipSum}`);
 }
-manOWar(["12>13>11>20>66",
-"12>22>33>44>55>32>18",
-"70",
-"Fire 2 11",
-"Fire 8 100",
-"Defend 3 6 11",
-"Defend 0 3 5",
-"Repair 1 33",
-"Status",
-"Retire"]);
+// manOfWar([
+//     "12>13>11>20>66",
+//     "12>22>33>44>55>32>18",
+//     "70",
+//     "Fire 2 11",
+//     "Fire 8 100",
+//     "Defend 3 6 11",
+//     "Defend 0 3 5",
+//     "Repair 1 33",
+//     "Status",
+//     "Retire"]);
+
+manOfWar([
+    "2>3>4>5>2",
+    "6>7>8>9>10>11",
+    "20",
+    "Status",
+    "Fire 2 3",
+    "Defend 0 4 11",
+    "Repair 3 18",
+    "Retire"]);    
