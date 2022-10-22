@@ -1,7 +1,6 @@
 function shoppingList(array) {
 
     let listOfProducts = array.shift().split('!');
-    let listOfProductsL = listOfProducts.length;
 
     for (const elements of array) {
         let splitCommand = elements.split(' ');
