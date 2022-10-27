@@ -1,9 +1,10 @@
-function personInfo(firstName, secondName, age) {
+function personInfo(firstName, lastName, age) {
 
-   let person = {};
-   person.firstName = firstName;
-   person.secondName = secondName;
-   person.age = age
-        console.log(person);
+    const person = {
+        firstName,
+        lastName,
+        age,
+    }
+    return person;
 }
 personInfo("Peter", "Pan", "20");
