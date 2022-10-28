@@ -1,4 +1,4 @@
-function soleve(input) {
+function inventory(input) {
 
     let heros = [];
 
