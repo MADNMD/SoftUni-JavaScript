@@ -1,21 +1,24 @@
 function wordOccurrences(input) {
 
-    let occurences = {};
-    for (let word of input) {
-        if (occurences.hasOwnProperty(word)) {
-            let currenCount = occurences[word];
-            occurences[word] = currenCount + 1;
+    const listOfWord = {};
+    const list = input;
+
+    list.forEach(word => {
+        let counter = 0;
+        if (!listOfWord[word]) {
+            counter++;
+            listOfWord[word] = counter;
         } else {
-            occurences[word] = 1;
+            counter++;
+            listOfWord[word] += counter;
         }
-    }
-    let entires = Object.entries(occurences);
-    let sortedOccurenses = entires.sort((a, b) => b[1] - a[1]);
-    for (let wordAndCount of sortedOccurenses) {
-        // let word = wordAndCount.shift();
-        //let count = wordAndCount.shift();
-        console.log(`${wordAndCount[0]} -> ${wordAndCount[1]} times`);
-    }
+    });
+    const sortedByOccurrences = Object.entries(listOfWord);
+    sortedByOccurrences.sort((a, b) => b[1] - a[1]);
+
+    sortedByOccurrences.forEach(word => {
+        console.log(`${word[0]} -> ${word[1]} times`);
+    });
 }
 wordOccurrences([
     "Here", "is", "the", "first", "sentence", "Here", "is", "another",
@@ -28,18 +31,22 @@ wordOccurrences([
     //     occurences[word[i]] = count + 1;
     // }
 
-    //----------------------------------------------------------------
-    // let words = new Map();
+    //------------------------
+
+
+    // let occurences = {};
     // for (let word of input) {
-    //     if (words.has(word)) {
-    //         let curruentCount = words.get(word);
-    //         words.set(word, curruentCount + 1);
+    //     if (occurences.hasOwnProperty(word)) {
+    //         let currenCount = occurences[word];
+    //         occurences[word] = currenCount + 1;
     //     } else {
-    //         words.set(word, 1);
+    //         occurences[word] = 1;
     //     }
     // }
-    // let wordsArray = Array.from(words);
-    // let sortedWord = wordsArray.sort((a, b) => b[1] - a[1]);
-    // for (let word of sortedWord) {
-    //     console.log(`${word[0]} -> ${word[1]} times`);
+    // let entires = Object.entries(occurences);
+    // let sortedOccurenses = entires.sort((a, b) => b[1] - a[1]);
+    // for (let wordAndCount of sortedOccurenses) {
+    //     // let word = wordAndCount.shift();
+    //     //let count = wordAndCount.shift();
+    //     console.log(`${wordAndCount[0]} -> ${wordAndCount[1]} times`);
     // }
