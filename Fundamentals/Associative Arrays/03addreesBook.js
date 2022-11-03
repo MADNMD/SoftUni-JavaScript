@@ -1,16 +1,18 @@
 function addressBook(input) {
 
-    let addressPerson = {};
-    let sortedByName;
-    for (let info of input) {
-        let [name, address] = info.split(':');
-        addressPerson[name] = address;
-        let key = Object.keys(addressPerson);
-        sortedByName = key.sort((a, b) => a.localeCompare(b));
-    }
-    for (let name of sortedByName) {
-        console.log(`${name} -> ${addressPerson[name]}`);
-    }
+   const bookWithAddrees = {};
+    const array = input;
+
+    array.forEach(line => {
+        let [name, addrees] = line.split(':');
+        bookWithAddrees[name] = addrees;
+    });
+    const sortedByName = Object.keys(bookWithAddrees);
+    sortedByName.sort((a, b) => a.localeCompare(b));
+
+    sortedByName.forEach(name => {
+        console.log(`${name} -> ${bookWithAddrees[name]}`);
+    });
 }
 addressBook([
     'Tim:Doe Crossing',
@@ -33,27 +35,3 @@ addressBook([
 // for (let [name, address] of sorted) {
 //     console.log(name, '->', address);
 // }
-
-//--------------------------------------------------------
-    // let addressBook = new Map();
-    // let sortedByName;
-    // for (let line of input) {
-    //     let [name, address] = line.split(':');
-    //     addressBook.set(name, address);
-    //     sortedByName = new Map([...addressBook].sort());
-    // }
-    // for (let [key, value] of sortedByName) {
-    //     console.log(key, '->', value);
-    // }
-
-    //---------------------------------------------------------
-    // let addressBook = new Map();
-    // for (let line of input) {
-    //     let [name, address] = line.split(':');
-    //     addressBook.set(name, address);
-    // }
-    // let array = Array.from(addressBook);
-    // let sortedByName = array.sort((a, b) => a[0].localeCompare(b[0]));
-    // for (let [name, address] of sortedByName) {
-    //     console.log(name, '->', address);
-    // }
