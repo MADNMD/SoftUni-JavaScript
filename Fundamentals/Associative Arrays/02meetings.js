@@ -19,17 +19,3 @@ meetings([
     'Wednesday Bill',
     'Monday Tim',
     'Friday Tim']);
-
-    // let meetingsApp = new Map();
-    // for(let line of input){
-    //     let[weekDay, name] = line.split(' ');
-    //     if(!meetingsApp.has(weekDay)){
-    //         console.log(`Scheduled for ${weekDay}`);
-    //         meetingsApp.set(weekDay,name);
-    //     }else{
-    //         console.log(`Conflict on ${weekDay}!`);
-    //     }
-    // }
-    // for(let [key,value] of meetingsApp){
-    //     console.log(`${key} -> ${value}`);
-    // }
