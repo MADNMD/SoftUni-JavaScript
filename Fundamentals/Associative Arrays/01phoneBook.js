@@ -1,12 +1,14 @@
 function phoneBook(input) {
 
-    let phoneBook = {};
-    for (let nameAndPhone of input) {
-        let [name, phone] = nameAndPhone.split(' ');
-        phoneBook[name] = phone;
-    }
-    for (let key in phoneBook) {
-        console.log(`${key} -> ${phoneBook[key]}`);
+    const phoneBook = {};
+    const array = input;
+
+    array.forEach(info => {
+        let [name, phnone] = info.split(' ');
+        phoneBook[name] = phnone;
+    });
+    for (const person in phoneBook) {
+        console.log(`${person} -> ${phoneBook[person]}`);
     }
 }
 phoneBook([
@@ -14,13 +16,3 @@ phoneBook([
     'Peter 0877547887',
     'Bill 0896543112',
     'Tim 0876566344']);
-
-
-    // let phoneBook = new Map();
-    // for (let info of input) {
-    //     let [name, phone] = info.split(' ');
-    //     phoneBook.set(name, phone);
-    // }
-    // for (let [key, value] of phoneBook) {
-    //     console.log(key, '->', value);
-    // }
