@@ -1,23 +1,29 @@
 function piccolo(input) {
 
-    let carsInTheParking = {};
-    for (let line of input) {
-        let commands = line.split(', ')[0];
-        let carNumber = line.split(', ')[1];
-        if (commands === 'IN') {
-            carsInTheParking[carNumber] = null;
-        } else if (commands === 'OUT') {
-            delete carsInTheParking[carNumber];
+     const carList = input;
+    const cars = {};
+
+    carList.forEach(line => {
+        let [inOrOut, carNumber] = line.split(', ');
+
+        if (inOrOut === 'IN') {
+            cars[carNumber] = null;
+        } else {
+            if (!cars[carNumber]) {
+                delete cars[carNumber];
+            }
         }
-    }
-    let key = Object.keys(carsInTheParking);
-    if (key.length === 0) {
+    });
+    const sortedByCarNumbers = Object.keys(cars);
+
+    if (sortedByCarNumbers.length === 0) {
         console.log('Parking Lot is Empty');
+        return;
     }
-    let sortedCarNumbers = key.sort();
-    for (let carNumber of sortedCarNumbers) {
-        console.log(carNumber);
-    }
+    sortedByCarNumbers.sort();
+    sortedByCarNumbers.forEach(car => {
+        console.log(car);
+    });
 }
 piccolo([
     'IN, CA2844AA',
