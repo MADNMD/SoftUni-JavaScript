@@ -8,14 +8,10 @@ function censoredWords(text, word) {
 censoredWords('A small sentence with some small words', 'small');
 
 
-// let tokens = text.split(' ');
-// for (let el of tokens) {
-//     if (el.includes(word)) {
-//         let index = tokens.indexOf(word);
-//         tokens.splice(index, 1, '*'.repeat(word.length))
-//     }
+// while (sentence.includes(word)) {
+//    sentence = sentence.replace(word, word[0] + '*'.repeat(word.length - 1));    показва само първата буква на скритата дума
 // }
-// console.log(tokens.join(' '));
+// A s**** sentence with some words
 
 //--------------------------------------------------
 
