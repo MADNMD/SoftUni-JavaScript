@@ -6,17 +6,6 @@ function countStringOccurrences(text, word) {
 }
 countStringOccurrences('This is a word and it also is a sentence', 'is');
 
-//-----------------------------------------
-
-// let counter = 0;
-// let sentence = text.split(' ');
-// for(let element of sentence){
-//     if(element === word){
-//         counter++;
-//     }
-// }
-// console.log(counter);
-
 //-----------------------------------------------
 
 // let token = text.split(' ');
