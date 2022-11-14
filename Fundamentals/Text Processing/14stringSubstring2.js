@@ -1,4 +1,4 @@
-function cutAndReverse(word, sentence) {
+function stringSubstring(word, sentence) {
 
     const text = sentence
         .toLowerCase()
@@ -11,6 +11,6 @@ function cutAndReverse(word, sentence) {
         console.log(`${word} not found!`);
     }
 }
-cutAndReverse('python',
+stringSubstring('python',
     'JavaScript is the best programming language'
 );
