@@ -1,51 +1,59 @@
 function passwordReset(input) {
 
-    let password = input.shift();
+    const arrayInput = input.slice();
+    let password = arrayInput.shift();
 
-    let line = input.shift();
+    let line = arrayInput.shift();
+
     while (line !== 'Done') {
 
         let [command, ...data] = line.split(' ');
 
         if (command === 'TakeOdd') {
-            password = password.split('');
-            let newPassword = '';
-            let passwordL = password.length;
+            const passwordL = password.length;
+            let tempPass = '';
+
             for (let i = 0; i < passwordL; i++) {
+
                 if (i % 2 !== 0) {
-                    newPassword += password[i];
+                    tempPass += password[i];
                 }
             }
-            password = newPassword
+            password = tempPass;
             console.log(password);
-        } else if (command === 'Cut') {
-            let index = Number(data[0]);
-            let length = Number(data[1]);
-            let string = password.substring(index, index + length);
-            password = password.replace(string, '');
-            // let firstPart = password.substring(0, index);
-            // let secondPart = password.substring(index);
-            // let thirdPart = secondPart.substring(length);
-            // password = firstPart + thirdPart
 
+        } else if (command === 'Cut') {
+            const index = Number(data[0]);
+            const length = Number(data[1]);
+
+            let firstHalf = password.substring(0, index);
+            let secondHalf = password.substring(index + length);
+            password = firstHalf.concat(secondHalf);
+            // let string = password.substring(index, index + length); вторит вариант на изрязване на стринга!!!
+            // password = password.replace(string, '');
             console.log(password);
-        } else if (command === 'Substitute') {
-            let subStr = data[0];
-            let substitute = data[1];
-            if (password.includes(subStr)) {
-                while (password.includes(subStr)) {
-                    password = password.replace(subStr, substitute);
+
+        }else if(command === 'Substitute'){
+            const str = data[0];
+            const subStr = data[1];
+
+            if(password.includes(str)){
+
+                while(password.includes(str)){
+                    password = password.replace(str, subStr);
                 }
                 console.log(password);
-            } else {
-                console.log("Nothing to replace!");
+            }else{
+                console.log('Nothing to replace!');
             }
         }
-        line = input.shift();
+
+        line = arrayInput.shift();
     }
     console.log(`Your password is: ${password}`);
 }
-passwordReset(["Siiceercaroetavm!:?:ahsott.:i:nstupmomceqr",
+passwordReset([
+    "Siiceercaroetavm!:?:ahsott.:i:nstupmomceqr",
     "TakeOdd",
     "Cut 15 3",
     "Substitute :: -",
