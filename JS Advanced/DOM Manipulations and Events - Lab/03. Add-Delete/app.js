@@ -5,20 +5,22 @@ function addItem() {
 
     const newLiElement = document.createElement('li');
 
-    newLiElement.textContent = input.value
+    if (input.value !== '') {
 
-    ulElement.appendChild(newLiElement);
+        newLiElement.textContent = input.value
 
-    const deleteBtn = document.createElement('a');
-    deleteBtn.textContent = '[Delete]';
-    deleteBtn.href = '#';
-    newLiElement.appendChild(deleteBtn);
+        ulElement.appendChild(newLiElement);
 
-    deleteBtn.addEventListener('click', onDelete);
+        const deleteBtn = document.createElement('a');
+        deleteBtn.textContent = '[Delete]';
+        deleteBtn.href = '#';
+        newLiElement.appendChild(deleteBtn);
 
-    function onDelete(event) {
-        event.target.parentElement.remove();
+        deleteBtn.addEventListener('click', onDelete);
+
+        function onDelete(event) {
+            event.target.parentElement.remove();
+        }
     }
-
     input.value = '';
 }
