@@ -1,4 +1,4 @@
-function addItem(){
+function addItem() {
 
     const inputElement = document.getElementById('newItemText');
     const itemsElements = document.getElementById('items');
@@ -7,11 +7,12 @@ function addItem(){
 
     newLiElement.textContent = inputElement.value;
 
-    itemsElements.appendChild(newLiElement);
+    if (inputElement.value !== '') {
+
+        itemsElements.appendChild(newLiElement);
+    }
     inputElement.value = '';
-
-}
-
+}  
 
 
 
