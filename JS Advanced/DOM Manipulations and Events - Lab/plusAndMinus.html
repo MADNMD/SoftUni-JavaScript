@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>0</button>
+    <button id="plus">+</button>
+    <button id="sub">-</button>
+
+
+    <script>
+        const btn = document.querySelector('button');
+        const plusBtn = document.getElementById('plus');
+        const subBtn = document.getElementById('sub');
+        plusBtn.addEventListener('click', plus);
+        subBtn.addEventListener('click', subtrack);
+
+        function plus() {
+            let increment = Number(btn.textContent) + 1;
+            btn.textContent = increment;
+        }
+
+        function subtrack() {
+            let dicrement = Number(btn.textContent) - 1;
+            btn.textContent = dicrement;
+        }
+    </script>
+</body>
+
+</html>
