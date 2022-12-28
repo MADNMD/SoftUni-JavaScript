@@ -1,0 +1,16 @@
+{
+  "name": "unit-testing-and-error-handling---exercise",
+  "version": "1.0.0",
+  "description": "",
+  "main": "02evenOrOdd.js",
+  "scripts": {
+    "test": "mocha ./*test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0"
+  }
+}
