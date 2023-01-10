@@ -1,0 +1,91 @@
+class OnlineShop {
+    constructor(warehouseSpace) {
+        this.warehouseSpace = warehouseSpace;
+        this.products = [];
+        this.sales = [];
+        this.sale = 0;
+    }
+    loadingStore(product, quantity, spaceRequired) {
+
+        if (Number(this.warehouseSpace) < spaceRequired) {
+            throw new Error('Not enough space in the warehouse.');
+        } else {
+            this.products.push(product, quantity);
+            this.warehouseSpace -= spaceRequired;
+            return `The ${product} has been successfully delivered in the warehouse.`;
+        }
+    }
+    quantityCheck(product, minimalQuantity) {
+
+        let index = this.products.indexOf(product);
+        let quantity = Number(this.products[index + 1]);
+
+        if (!this.products.includes(product)) {
+            throw new Error(`There is no ${product} in the warehouse.`);
+        } else {
+            if (minimalQuantity <= 0) {
+                throw new Error('The quantity cannot be zero or negative.');
+            }
+            if (minimalQuantity <= quantity) {
+                return `You have enough from product ${product}.`;
+            } else {
+                this.products.splice(index + 1, 1, minimalQuantity);
+                return `You added ${minimalQuantity - quantity} more from the ${product} products.`;
+            }
+        }
+    }
+    sellProduct(product) {
+
+        if (!this.products.includes(product)) {
+            throw new Error(`There is no ${product} in the warehouse.`);
+        } else {
+            let index = this.products.indexOf(product);
+            this.products[index + 1] -= 1;
+            this.sale++;
+            this.sales.push(product, 1);
+            return `The ${product} has been successfully sold.`;
+        }
+    }
+    revision() {
+
+        if (this.sale === 0) {
+            throw new Error('There are no sales today!');
+        } else {
+            let availableProduct = '';
+            for (let i = 0; i < this.products.length; i += 2) {
+                availableProduct += `\n${this.products[i]}-${this.products[i + 1]} more left`;
+            }
+            return `You sold ${this.sale} products today!\nProducts in the warehouse:${availableProduct}`;
+        }
+    }
+}
+// const myOnlineShop = new OnlineShop(500)
+// console.log(myOnlineShop.loadingStore('headphones', 10, 200));
+// console.log(myOnlineShop.loadingStore('laptop', 5, 200));
+// //console.log(myOnlineShop.products);
+
+// console.log(myOnlineShop.quantityCheck('headphones', 10));
+// console.log(myOnlineShop.quantityCheck('laptop', 10));
+
+// console.log(myOnlineShop.sellProduct('headphones'));
+// console.log(myOnlineShop.sellProduct('laptop'));
+// console.log(myOnlineShop.sellProduct('keyboard'));
+
+const myOnlineShop = new OnlineShop(500)
+console.log(myOnlineShop.loadingStore('headphones', 10, 200));
+console.log(myOnlineShop.loadingStore('laptop', 5, 200));
+
+console.log(myOnlineShop.quantityCheck('headphones', 10));
+console.log(myOnlineShop.quantityCheck('laptop', 10));
+
+console.log(myOnlineShop.sellProduct('headphones'));
+console.log(myOnlineShop.sellProduct('laptop'));
+console.log(myOnlineShop.revision());
+
+// const myOnlineShop = new OnlineShop(500)
+// console.log(myOnlineShop.loadingStore('headphones', 10, 200));
+// console.log(myOnlineShop.loadingStore('laptop', 5, 200));
+
+// console.log(myOnlineShop.quantityCheck('headphones', 10));
+// console.log(myOnlineShop.quantityCheck('laptop', 10));
+// console.log(myOnlineShop.quantityCheck('TV', 40,));
