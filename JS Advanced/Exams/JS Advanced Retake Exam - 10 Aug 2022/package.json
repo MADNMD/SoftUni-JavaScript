@@ -1,0 +1,16 @@
+{
+  "name": "js-advanced-retake-exam---10-aug-2022",
+  "version": "1.0.0",
+  "description": "",
+  "main": "02triathlon.js",
+  "scripts": {
+    "test": "mocha ./*test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0"
+  }
+}
