@@ -1,0 +1,16 @@
+{
+  "name": "js-advanced-final-exam---23-october-2021",
+  "version": "1.0.0",
+  "description": "",
+  "main": "02camping.js",
+  "scripts": {
+    "test": "mocha ./*test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0"
+  }
+}
