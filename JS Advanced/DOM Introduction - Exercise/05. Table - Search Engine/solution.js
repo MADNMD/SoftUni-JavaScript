@@ -7,10 +7,9 @@ function solve() {
    function onClick() {
 
       for (let line of studentsInfo) {
+         
          line.classList.remove('select');
-         if (search.value === '') {
-            line.classList.remove('select');
-         }
+         
          if (search.value !== '' && line.textContent.includes(search.value)) {
             line.className = 'select';
          }
