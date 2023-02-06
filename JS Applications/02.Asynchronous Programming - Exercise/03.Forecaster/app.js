@@ -176,7 +176,7 @@ function attachEvents() {
             return data;
 
         } catch (error) {
-            error;
+            alert(error.message);
         }
     }
 }
