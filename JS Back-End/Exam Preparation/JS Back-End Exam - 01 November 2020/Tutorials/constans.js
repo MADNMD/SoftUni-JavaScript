@@ -1,0 +1,1 @@
+exports.COOKIE_CONECTION_STRING = 'user';
