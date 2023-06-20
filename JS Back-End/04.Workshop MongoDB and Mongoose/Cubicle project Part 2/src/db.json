@@ -1,0 +1,44 @@
+[
+    {
+        "id": 0,
+        "name": "Gan356 Air SM",
+        "description": "test 0",
+        "imageUrl": "https://ae01.alicdn.com/kf/HTB1CSddXRxRMKJjy0Fdq6yifFXa6/Gan-356-Air-SM-3x3-Black-Magic-cube-GAN-Air-SM-Magnetic-3x3x3-Speed-cube-gans.jpg",
+        "difficultyLevel": 3
+    },
+    {
+        "id": 1,
+        "name": "Eco-Dark",
+        "description": "test 1",
+        "imageUrl": "https://thingsidesire.com/wp-content/uploads/2018/06/Eco-Dark-Rubik%E2%80%99s-Cube2.jpg",
+        "difficultyLevel": 6
+    },
+    {
+        "id": 2,
+        "name": "Pyraminx",
+        "description": "test 2",
+        "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61izOzq%2BBAL._SY355_.jpg",
+        "difficultyLevel": 1
+    },
+    {
+        "id": 3,
+        "name": "Megaminx",
+        "description": "test 3",
+        "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61HpQqVQ37L._SY355_.jpg",
+        "difficultyLevel": 3
+    },
+    {
+        "id": 4,
+        "name": "Rubik",
+        "description": "test 4",
+        "imageUrl": "https://scx2.b-cdn.net/gfx/news/2018/1-rubikscube.jpg",
+        "difficultyLevel": 4
+    },
+    {
+        "id": 5,
+        "name": "Duble Tetrahidron",
+        "description": "test 1",
+        "imageUrl": "https://images1.sw-cdn.net/cdn-cgi/image/quality=85,gravity=auto,format=auto,fit=scale-down,width=1920/product/picture/710x528_36237287_13316815_1636397433_1_0.jpg",
+        "difficultyLevel": "5"
+    }
+]
