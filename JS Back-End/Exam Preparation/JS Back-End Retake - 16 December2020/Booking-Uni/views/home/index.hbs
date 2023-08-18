@@ -1,0 +1,21 @@
+<section id="viewCatalog" class="background-img">
+    <div class="added-hotels">
+        {{#if user}}
+            {{#each hotels}}
+                {{> hotel-card-template-user}}
+            {{else}}
+                <div class="guest">
+                    There are no Hotels found...
+                </div>
+            {{/each}}
+        {{else}}
+            {{#each hotels}}
+                {{> hotel-card-template-guest}}
+            {{else}}
+                <div class="guest">
+                    There are no Hotels found...
+                </div>
+            {{/each}}
+        {{/if}}
+    </div>
+</section>
