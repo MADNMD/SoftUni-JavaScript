@@ -1,0 +1,16 @@
+<form class="search" method="GET">
+    <input type="search" name="type" placeholder="Search here...">
+    <button type="submit">Search</button>
+</form>
+<section id="find-section">
+
+    {{#if searchingEstate}}
+        {{#each searchingEstate}}
+            {{> catalog-card-template}}
+        {{/each}}  
+    {{else}}
+        <div class="no-data-listing">
+            <p class="no-offer">No match was found for the submitted type...</p>
+        </div>
+    {{/if}}
+</section>
